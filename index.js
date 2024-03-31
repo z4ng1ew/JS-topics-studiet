@@ -259,13 +259,11 @@
 // const unt = [...arr, ...arrTwo];
 // console.log(unt);
 
-
 //6.1.1 Используем ... - этот оператор для передачи элементов в другую функцию как аргументы
 
 // function plus(x, y, z){
 //     return x + y + z;
 // }
-
 
 // const num = [30, 20, 40];
 
@@ -273,22 +271,9 @@
 
 // console.log(res); // Вывод: 90
 
-
-
-
-
-
-
-
 //6.1.2 Используем Set
 
-
-
-
 //слово Set является зарезервированным словом в JavaScript, используемым для создания структуры данных Set. Set - это объект, который содержит уникальные значения и обеспечивает эффективный способ проверки наличия элемента в коллекции. Он может содержать значения любого типа данных, и каждое значение в коллекции Set появляется только один раз.Set является частью встроенных объектов JavaScript и не может быть использовано в качестве идентификатора для переменных или функций.
-
-
-
 
 // const storage =  new Set();
 
@@ -303,16 +288,129 @@
 // console.log(storage.has(20));
 // console.log(storage.has(70));
 
-
-
-
-
-
-
 // !!!!!!!!!!!!          ДЕСТРУКТУРИЗАЦИЯ      !!!!!!!!!!!!!!
 
 //  destructured assignment
 
 // Деструктуризация в JavaScript - это специальный синтаксис, который позволяет извлекать значения из массивов или объектов и присваивать их переменным более простым способом. Это удобный способ извлечения данных из структур данных и использования их в коде.
 
-//
+//Деструктуризация объекта
+
+// const user = {
+//     Call: "Ike",
+//     age: 25,
+//     unemployed: true,
+// };
+
+// const {  age, Call} = user;
+// const { unemployed } = user; //извлекаем значения из объекта и присваиваем их переменным
+
+// console.log(Call);
+// console.log(age);
+// console.log(unemployed);
+
+//Деструктуризация массива
+
+// const vegetables = ['carrot', 'beet', 'tomato', 'cucumber', 'pickl'];
+
+// const [carrot, beet, tomato, cucumber, picklRick] = vegetables; //порядк элементов важен, НАЗВАНИЯ МОЖНО ДАВАТЬ ЛЮБЫЕ
+
+// console.log(carrot);
+// console.log(picklRick);
+
+// //Деструтуризация в функциях
+
+// const user2 = {
+//     call: 'Nik',
+//     age: 25,
+//     employed: true,
+// }
+
+// const info = ({call, age, employed}) => { //деструктуризация параметров функции
+//     if (!employed){
+//         return console.log(`User ${call} has no job`);
+//     }
+//     return console.log(`User ${call} has a job and him ${age}`);
+// }
+
+// info(user2)//User Nik has a job and him 25
+
+//деструкторизацию можно использовать и внутри функции
+
+//Практика!!!
+
+// № 1 Задание
+// const user = {
+//     call: 'Mik',
+//     age:20,
+//     country: 'Netherlands'
+// }
+
+// const {call, age,   country} = user;
+
+// console.log(call, age, country);
+
+//  № 2 Задание
+
+// const colors = ['red', 'green', 'blue'];
+
+// const [red, green, blue] = colors;
+
+// console.log(red, green, blue);
+
+// № 3 Задание. Деструктуризация в параметрах функции:
+
+// person = {
+//     name: "James",
+//     age: 25,
+// }
+
+// function printPerson({name, age}){
+//     return console.log( name, age);
+// }
+
+// printPerson(person);
+
+//4. Деструктуризация вложенных объектов:
+
+// const stud = {
+//     Sname: 'Alick',
+//     about: {
+//         evaluations: 5,
+//         years: 27,
+//     }
+// }
+
+// // const {Sname, about} = stud;
+
+// // const {evaluations, years} = about;
+// // console.log(Sname, about, evaluations, years);
+
+// const {Sname, about: {evaluations, years}} = stud;  //ПРЕДПОЧТИТЕЛЬНЕЕ!
+// console.log(Sname,  evaluations, years);
+
+//5.Использование значения по умолчанию:
+
+// const person = {
+//     Sname: 'John',
+//     age: 30,
+// };
+
+// const {Sname, age, country = 'USA' } = person;
+
+// console.log(Sname, age, country);
+
+
+
+
+
+
+
+
+
+// Условные инструкции (Тернарный оператор (выражение которое возвращает результат), switch, if, if ... else)
+
+
+//Инструкция выполняет определённое действие
+
+
