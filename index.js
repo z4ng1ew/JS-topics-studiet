@@ -400,16 +400,7 @@
 
 // console.log(Sname, age, country);
 
-
-
-
-
-
-
-
-
 // Условные инструкции (Тернарный оператор (выражение которое возвращает результат), switch, if, if ... else)
-
 
 //Инструкция выполняет определённое действие
 
@@ -421,3 +412,407 @@
 
 В общем, цель парсинга состоит в том, чтобы преобразовать неструктурированные или слабоструктурированные данные в структурированный формат, который можно обработать и использовать для различных целей, таких как анализ, хранение, визуализация и др.
 */
+
+// {
+//     "userId": 1,
+//     "id": 1,
+//     "title": "Test title",
+//     "status":{
+//         "completed": false
+//     }
+// }
+// JSON- формат обмена данными между клиентом и API.
+
+//Передача данных происходи в виде строки:
+
+//{"userId": 1,"id": 1,"title": "Test title","status":{"completed": false}}
+
+//JSON (JavaScript Object Notation) является форматом обмена данными, который широко используется для передачи структурированной информации между клиентскими приложениями и серверными API. JSON представляет собой текстовый формат, основанный на JavaScript, и позволяет представлять данные в виде пар ключ-значение, массивов и вложенных структур данных.
+
+// JSON обычно применяется в веб-разработке для обмена данными между клиентом и сервером посредством HTTP-запросов. Например, когда клиентское веб-приложение отправляет запрос на сервер для получения данных или отправляет данные на сервер для обработки, они могут быть представлены в формате JSON. Затем сервер обрабатывает запрос и отправляет ответ также в формате JSON, который затем может быть обработан клиентским приложением.
+
+// JSON прост в использовании, легко читаем и записываем для человека, а также легко обрабатывается компьютером. Это делает его популярным выбором для обмена данными во многих веб-приложениях и API.
+
+// "" - объязытально нужно использовать двойные кавычки в JSON
+
+// как конвертировать JSON:
+
+//От сервера JSON.parse()  //из строки обратно в объект
+//От клиента JSON.stringify() //из объекта  обратно в строку
+
+
+//То что я вводил в консоль:
+
+/*
+
+const data = {
+    title: 'Title', words: 5 
+}
+undefined
+data
+{title: 'Title', words: 5}title: "Title"words: 5[[Prototype]]: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()__proto__: (…)get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+JSON
+JSON {Symbol(Symbol.toStringTag): 'JSON', parse: ƒ, stringify: ƒ, rawJSON: ƒ, isRawJSON: ƒ}isRawJSON: ƒ isRawJSON()parse: ƒ parse()length: 2name: "parse"arguments: (…)caller: [Исключение: TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+    at Function.invokeGetter (<anonymous>:3:28)][[Prototype]]: ƒ ()[[Scopes]]: Scopes[0]rawJSON: ƒ rawJSON()stringify: ƒ stringify()length: 3name: "stringify"arguments: (…)caller: (…)[[Prototype]]: ƒ ()[[Scopes]]: Scopes[0]Symbol(Symbol.toStringTag): "JSON"[[Prototype]]: Object
+JSON.STR
+undefined
+JSON.stringify(post)
+VM255:1 Uncaught ReferenceError: post is not defined
+    at <anonymous>:1:16
+(анонимная) @ VM255:1
+JSON.stringify(data)
+'{"title":"Title","words":5}'
+JSON
+JSON {Symbol(Symbol.toStringTag): 'JSON', parse: ƒ, stringify: ƒ, rawJSON: ƒ, isRawJSON: ƒ}
+const pastData = JSON.stringify(data)
+undefined
+JSON.parse(pastData)
+{title: 'Title', words: 5}title: "Title"words: 5[[Prototype]]: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()__proto__: (…)get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+
+*/
+
+
+
+
+
+
+//.then(response => response.json()) // Преобразует тело ответа в объект JavaScript
+
+
+//задания
+
+//Условные инструкции,  Условная инструкция if else, Использование if в функциях, Инструкция Switch
+//Тернарный оператор
+//Циклы
+//Цикл for
+// Для перебора массивов не нужен for
+// Цикл while
+// Цикл do while
+// Цикл for in
+// Методы keys и values для объектов
+// Цикл for in для массивов
+// Цикл for of
+
+
+//Напишите программу, которая проверяет, является ли число четным или нечетным
+
+// function Even0rOdd(num){
+//     if(num % 2 === 0){
+//         return "Даноое число - " + num + " - чётное"
+//     } else {
+//         return "Данное число -" + num + " - НЕ чётное"
+//     }
+// }
+
+
+// let num = 17;
+// console.log(Even0rOdd(num));
+// const a = 10;
+// console.log(a % 2);
+
+
+
+
+// const n = 11;
+
+//     ((n) => {
+//         if(n %2 === 0){
+//             return console.log(n + " число чётное"); 
+//         } else{
+//             return console.log(n + " число не чётное"); 
+//         }
+//     })(n)
+
+
+
+    /*
+
+((n) => {
+    if (n % 2 === 0) {
+        console.log(n + " - число чётное");
+    } else {
+        console.log(n + " - число нечётное");
+    }
+}) - а зачем писать эту функцию в рамках круглых скобок
+ChatGPT
+Помещение функции в круглые скобки имеет особое значение в JavaScript. Если вы хотите вызвать стрелочную функцию сразу после ее определения (также известное как "IIFE" - Immediately Invoked Function Expression), вам нужно обернуть определение функции в круглые скобки.
+
+Почему это необходимо? При определении функции JavaScript интерпретатор ожидает, что после определения функции будет следовать тело самой функции. Однако, если вы хотите немедленно вызвать эту функцию, вы должны заключить определение функции в скобки, чтобы интерпретатор понял, что это не только определение функции, но и ее вызов.
+
+Вот пример:
+
+javascript
+Copy code
+// Объявление и немедленный вызов стрелочной функции
+((n) => {
+    if (n % 2 === 0) {
+        console.log(n + " - число чётное");
+    } else {
+        console.log(n + " - число нечётное");
+    }
+})(11); // Передача значения 11 в качестве аргумента для переменной n
+Таким образом, ваши круглые скобки не являются частью определения функции, они используются для немедленного вызова этой функции.
+
+
+
+
+
+
+    */
+
+
+// num = 12
+
+// function func (num)  {
+
+//     if(num % 2 === 0){
+//         return console.log( `чётное - ${num} - число`);
+//     }else{
+//         return console.log(`не чётное - ${num} - число`); 
+//     }
+// }
+
+// func(num)
+
+
+
+
+//самый короткий вариант:
+// num = 12
+
+//     if(num % 2 === 0){
+//         console.log( `чётное - ${num} `);
+//     }else{
+//         console.log(`не чётное - ${num} `); 
+//     }
+
+
+
+//2. Условная инструкция if else: Создайте программу, которая проверяет, является ли число положительным, отрицательным или нулем.
+
+// function Even0rOdd(num){
+    
+//     if(num != 0 ){ 
+//         if(num % 2 === 0){
+//         return "Даноое число - " + num + " - чётное"
+//         } else {
+//         return "Данное число -" + num + " - НЕ чётное"
+//         }
+//     } else {
+//         return console.log("NULL");
+//     }
+// }
+
+
+// let num = 1;
+// console.log(Even0rOdd(num));
+
+
+
+
+
+
+//3. Использование if в функциях: Напишите функцию, которая принимает на вход число и выводит сообщение о том, является ли оно четным или нечетным.
+
+
+
+
+// const read  = require('readline');
+
+// const ObjInterfaceIO = read.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
+
+
+
+//     function func (num) {
+//         if(num % 2  === 0) {
+//             console.log(num + "- чётное");
+//         }else{
+//             console.log(num + "- не чётное");
+//         }
+//     }
+
+// ObjInterfaceIO.question('Введи число: ', (inputedNum) =>{
+//         const num = parseInt(inputedNum);
+
+//         if (!isNaN(num)){
+//             func(num);
+//         }else{
+//             console.log('Не правильный ввод.');
+//         }
+//     ObjInterfaceIO.close(); // Закрываем интерфейс после завершения ввода/вывода
+// });
+
+
+
+//Пример испотзования остатка
+//console.log(к = 11 % 10 );
+
+
+
+
+// 4. Инструкция Switch: Напишите программу, которая на основе введенного дня недели выводит соответствующее сообщение (например, "Понедельник", "Вторник", и т.д.).
+
+// let num = parseInt(prompt("Ведите номер дня недели (от 1 до 7)"))
+
+// switch (num){
+//     case 1:
+//     console.log("Понедельник");
+//     break;
+
+//     case 2:
+//     console.log("Вторник");
+//     break;
+    
+
+//     case 3:
+//     console.log("среда ");
+//     break;
+
+//     case 4:
+//     console.log("четверг");
+//     break;
+    
+
+//     case 5:
+//     console.log("пятница");
+//     break;
+    
+
+//     case 6:
+//     console.log("суббота");
+//     break;
+    
+
+//     case 7:
+//     console.log("воскресенье");   
+//     break;
+
+//     default:
+//     console.log("Еrror");
+// }
+
+
+
+
+
+// Поскольку prompt() возвращает строку, даже если пользователь вводит число, необходимо использовать parseInt() для преобразования этой строки в число
+
+
+
+
+/*
+
+чем switch case отличается от if else
+
+2 / 2
+
+ChatGPT
+switch и case и if и else - это оба конструкции управления потоком в JavaScript, но они имеют различные применения и особенности.
+
+Основные различия между switch и case и if и else:
+
+Условия: if и else проверяют условия на истинность или ложность. switch и case сравнивают выражение со значениями в case.
+
+Гибкость: if и else позволяют проверять различные условия, в то время как switch и case сравнивают только одно выражение с несколькими вариантами значений.
+
+Читаемость: В некоторых сценариях switch и case могут сделать код более читаемым, особенно когда требуется проверить одну переменную на несколько возможных значений. Однако при наличии большого количества условий switch и case могут стать громоздкими и менее читаемыми.
+
+Поведение: В switch и case используется строгая проверка равенства (===). В if и else вы можете использовать различные операторы сравнения, такие как ==, ===, <, >, <=, >=.
+
+Поиск: switch и case могут быть более эффективными в некоторых случаях, особенно когда сравнивается одно и то же значение с несколькими вариантами. Однако это зависит от реализации JavaScript.
+
+В общем, if и else предоставляют большую гибкость, в то время как switch и case могут быть более удобными в определенных ситуациях, особенно когда нужно сравнить одно значение с несколькими вариантами.
+
+*/
+
+
+
+//Задача на перевод в строку числа и получения его первого элемента
+
+// const d = 23;
+
+// const numm = d.toString()[0];
+
+// console.log(numm);
+
+// console.log(d.toString()[0]);
+
+
+
+
+
+
+
+
+//5.Тернарный оператор: Напишите программу, которая проверяет, является ли число положительным или отрицательным, используя тернарный оператор.
+
+// let n = parseInt(prompt("Ввод числа: "));
+
+
+//уcловный оператор
+// if(num > 0 || num < 0){
+//     console.log("positeve or/and negative");
+//     if(num > 0){
+//         console.log("positeve");
+//     }else{
+//         console.log(" negative");
+//     }
+// } else{
+//     console.log("Not a write input");
+// }
+
+
+// let res = (number > 0) ? "Положительное" 
+// : (number < 0) ? "Отрицательное" 
+// : "Ноль";
+
+// console.log(res);
+
+
+// let r = (n > 0) ? "Положительное" : (n < 0) ? "Отрицательное": "null";
+
+// console.log(r);
+
+
+
+
+
+
+
+//6. Циклы:Напишите программу, которая выводит числа от 1 до 10 в консоль.
+
+
+// for (i = 1; i < 11; i++){
+//     console.log(i); 
+// }
+
+
+
+//7 Цикл for: Используя цикл for, выведите все числа от 1 до 20, которые делятся на 3 без остатка.
+
+// for (i = 1; i < 21; i++){
+//     if (i % 3 == 0){
+//         console.log(i); 
+//     }
+    
+// }
+
+
+//2-ое решение
+
+// for(i = 3; i < 21; i +=3){
+//     console.log(i);
+// }
+
+//8. Для перебора массивов не нужен for: Создайте массив чисел и используйте метод forEach() для вывода каждого элемента массива в консоль.
+
+
+// const a = [1, 2, 3, 4, 5, 65, 67, 88, 99, 100];
+
+// a.forEach((d) => console.log(d));
+
+
+//9. Цикл while: Напишите программу, которая выводит все числа от 1 до 10 с использованием цикла while.
