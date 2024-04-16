@@ -1904,22 +1904,124 @@ ChatGPT
 //3. Подсчет количества определенных элементов: Создайте массив с различными элементами, включая повторяющиеся, и используйте метод reduce(), чтобы подсчитать количество определенных элементов.
 
 
-let arr = [1, 1, 2, 2, 4, 5];
+// let arr = [1, 1, 2, 2, 4, 5];
 
-let quantityUE = arr.reduce((acum, currentElem) => {
+// let quantityUE = arr.reduce((acum, currentElem) => {
 
-    if(currentElem in acum){
-        acum[currentElem]++;
-    }else{
-        accumulator[currentElem] =1;
-    }
-    return accumulator;
+//     if(currentElem in acum){ // происходит проверка наличия текущего элемента массива (currentElem) в объекте аккумулятора (acum).
+
+//         acum[currentElem]++; //Каждый элемент массива служит ключом в объекте acum, а его значение - количество раз, которое этот элемент встречается в массиве. Путем увеличения значения свойства acum[currentElem] на 1 при каждом обнаружении элемента currentElem мы фактически подсчитываем, сколько раз этот элемент встречается в массиве. //То есть здесь происходит фиксация того сколько раз встречался тот или иной элемент 
+
+//     }else{
+//         acum[currentElem] = 1; // В этой строке кода устанавливается начальное значение для свойства объекта acum, если текущий элемент массива встречается впервые.
+//     }
+//     return acum;
 
 
-}, {});
+// }, {});//Этот пустой объект используется в качестве начального значения аккумулятора, который мы будем заполнять ключами и значениями в процессе выполнения метода reduce().
 
 
-console.log(quantityUE);
+// console.log(quantityUE);
+
+
+// let ar = [1, 2, 3, 4, 5,  54, 3, 4, 4, 5, 8, 9 ];
+
+// let res = ar.reduce((acummulator, countValue) => {
+//     if(countValue in  acummulator){
+//         acummulator[countValue]++
+//     }else {
+//         acummulator[countValue] = 1
+//     }
+
+//     return acummulator
+
+
+// }, {});
+
+// console.log(res);
+
+
+
+
+
+
+
+
+
+// let ar1 = [1, 2, 3, 4, 5,  54, 3, 4, 4, 5, 8, 9 ];
+
+
+// let r = ar1.reduce((ac, curEl) => {
+
+//     if(curEl in ac){
+//         ac[curEl]++
+//     }else{
+//         ac[curEl] = 1
+//     }
+
+//     return ac;
+
+
+// }, {});
+
+
+
+// console.log(r);
+
+
+
+
+
+
+
+//4. Объединение значений в строку: Создайте массив строк и используйте метод reduce(), чтобы объединить все строки в одну строку, разделенную запятыми.
+
+// let ar1 = ["12345",  "54344", "589" ];
+
+// let  res = ar1.reduce((acum, currenEl) => {
+  
+//         return acum + "," + currenEl;
+   
+
+
+// });
+
+
+// console.log(res);
+
+
+//второе решение:
+
+
+// let ar1 = ["12345",  "54344", "589" ];
+
+// let  res = ar1.reduce((acum, currentEl, currentIndex) => {
+//     if (currentIndex === 0) {
+//         return currentEl; // Если это первый элемент, вернуть его как начальное значение аккумулятора
+//     } else {
+//         return acum + "," + currentEl; // Иначе объединить текущий элемент с предыдущими значениями
+//     }
+// }, '');
+
+// console.log(res);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1951,3 +2053,86 @@ accumulator[currentValue] = 1;
 
 Таким образом, в результате работы этой конструкции мы строим объект accumulator, который содержит ключи, соответствующие уникальным значениям в массиве, и значения, представляющие количество их вхождений в массиве.
 */
+
+
+
+//Поиск максимального и минимального значения:Создайте массив чисел и используйте метод reduce(), чтобы найти и вывести максимальное и минимальное значения.
+
+let ar = [1, 2, 3, 4, 5,  54, 3, 4, 4, 5, 8, 9 ];
+
+
+let res = ar.reduce(() => {
+    
+    let min1 = Math.min(...ar);
+    return min1
+   
+})
+
+
+let res2 = ar.reduce(() => {
+
+    let max1 = Math.max(...ar);
+
+
+    return  max1
+   
+})
+
+console.log(res, res2);
+
+
+//решение № 2
+
+let ar2 = [1, 2, 3, 4, 5,  54, 3, 4, 4, 5, 8, 9 ];
+
+
+let res22 = ar2.reduce((min, max) => {
+    
+    let min1 = Math.min(...ar);
+    let max1 = Math.max(...ar);
+
+
+    return min1 + " " + max1
+   
+},'')
+
+console.log(res22);
+
+
+
+
+//решение № 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let ar44 = [1, 2, 3, 4, 5,  54, 3, 4, 4, 5, 8, 9 ];
+
+
+let res44 = ar44.reduce((acum, currentEl) => {
+    
+    let min =acum[0];
+    let max = acum[1];
+    
+        if ( currentEl < min)
+        min = currentEl;
+       
+        if (currentEl > max)
+        max = currentEl;
+  
+    return [min, max]
+   
+}, [ar[0], ar[0]]);
+
+console.log(res44);
+
