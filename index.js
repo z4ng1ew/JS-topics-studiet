@@ -1831,7 +1831,19 @@ ChatGPT
 
 
 
-//Практика с reduce():
+
+
+
+
+
+
+
+
+
+
+
+
+// !!!!!!!       Практика с reduce():
 
 //Сумма элементов массива: Создайте массив чисел и используйте метод reduce(), чтобы вычислить и вывести сумму всех элементов.
 
@@ -1891,6 +1903,20 @@ ChatGPT
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //2. Нахождение среднего значения: Создайте массив чисел и используйте метод reduce(), чтобы найти и вывести среднее значение всех элементов.
 
 //  let a = [10, 20 , 30 , 40, 50];
@@ -1898,6 +1924,20 @@ ChatGPT
 //  let r = a.reduce((acum, current) => acum + current, 0) / a.length;
 
 //  console.log(r);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2056,83 +2096,744 @@ accumulator[currentValue] = 1;
 
 
 
-//Поиск максимального и минимального значения:Создайте массив чисел и используйте метод reduce(), чтобы найти и вывести максимальное и минимальное значения.
+// //Поиск максимального и минимального значения:Создайте массив чисел и используйте метод reduce(), чтобы найти и вывести максимальное и минимальное значения.
 
-let ar = [1, 2, 3, 4, 5,  54, 3, 4, 4, 5, 8, 9 ];
+// let ar = [5, 2, 3, 4, 5,  54, 3, 4, 4, 5, 8, 9 ];
 
 
-let res = ar.reduce(() => {
+// let res = ar.reduce(() => {
+//     let min1 = Math.min(...ar);
+//     return min1
+// })
+
+
+// let res2 = ar.reduce(() => {
+//     let max1 = Math.max(...ar);
+//     return  max1
+// })
+
+// console.log(res, res2);
+
+
+
+
+
+
+
+// //решение № 2
+
+// let ar2 = [8, 0, 3, 4, 5,  54, 3, 4, 4, 5, 8, 9 ];
+
+
+// let res22 = ar2.reduce((min1, max1) => {
     
-    let min1 = Math.min(...ar);
-    return min1
+//      min1 = Math.min(...ar); //Math.min - это встроенная функция в JavaScript, которая принимает любое количество числовых аргументов и возвращает наименьшее из них
+//      max1 = Math.max(...ar);
+
+
+//     return min1 + " " + max1
    
-})
+// },'')
+
+// console.log("решение № 2", res22);
 
 
-let res2 = ar.reduce(() => {
-
-    let max1 = Math.max(...ar);
 
 
-    return  max1
-   
-})
-
-console.log(res, res2);
 
 
-//решение № 2
-
-let ar2 = [1, 2, 3, 4, 5,  54, 3, 4, 4, 5, 8, 9 ];
+// //решение № 3
 
 
-let res22 = ar2.reduce((min, max) => {
+// let ar44 = [8, 0, 3, 4, 5,  54, 3, 4, 4, 5, 8, 9 ];
+
+
+// let res44 = ar44.reduce((acum, currentEl) => {
     
-    let min1 = Math.min(...ar);
-    let max1 = Math.max(...ar);
-
-
-    return min1 + " " + max1
-   
-},'')
-
-console.log(res22);
-
-
-
-
-//решение № 3
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let ar44 = [1, 2, 3, 4, 5,  54, 3, 4, 4, 5, 8, 9 ];
-
-
-let res44 = ar44.reduce((acum, currentEl) => {
+//     let min =acum[0];
+//     let max = acum[1];
     
-    let min =acum[0];
-    let max = acum[1];
-    
-        if ( currentEl < min)
-        min = currentEl;
+//         if ( currentEl < min)
+//         min = currentEl;
        
-        if (currentEl > max)
-        max = currentEl;
+//         if (currentEl > max)
+//         max = currentEl;
   
-    return [min, max]
+//     return [min, max] //res44 - может хранить только одно значение, значение массива в котором хранится два элемента
    
-}, [ar[0], ar[0]]);
+// }, [ar[0], ar[0]]);
 
-console.log(res44);
+// console.log("решение № 3", res44);
 
+
+
+
+// //решение № 3 (ещё раз)
+
+
+// let storage = ar44.reduce((ac, ce) =>{
+
+//     let min = ac[0];
+//     let max = ac[1];
+
+//     if( ce < min){
+//         min = ce;
+//     }
+
+//     if(ce > max){
+//         max = ce
+//     }
+//     return [min, max]
+
+// }, [ar[0], ar[0]])
+
+
+// console.log("решение № 3 (ещё раз)", storage);
+
+
+
+
+// //решение № 4 (Bard)
+
+// let SomeStorage = ar44.reduce((acum, curEl) => {
+
+//     let minimal = Math.min(acum[0], curEl); // Guaranteed minimum
+//     let maximal = Math.max(acum[1], curEl);  // Guaranteed maximum
+
+
+//     return [minimal, maximal];
+
+// }, [Infinity, -Infinity]) // Надежное начальное значение
+
+// console.log("решение № 4", SomeStorage[1], SomeStorage[0]);
+
+
+// // Использует массив для хранения минимального и максимального значений: [minimal, maximal].
+// // Начальное значение задается как [Infinity, -Infinity].
+// // На каждой итерации reduce() обновляет значения минимального и максимального элементов в массиве.
+// // В результате SomeStorage - это массив с двумя элементами: минимальным и максимальным значениями.
+
+
+
+// ///Решение № 5 (ПРАВИЛЬНОЕ гугл бард) 
+
+// //более понятное решене так как использует объект для хранения минимального и максимального значений, что делает код более понятным и легкочитаемым.
+
+
+// const rr = ar44.reduce((accum, currentEl) => { //создаём объект
+
+//     return { //{ ключ: значение }
+//         max: Math.max(accum.max, currentEl), 
+//         min: Math.min(accum.min, currentEl)
+//     };
+
+
+// }, { min: Infinity, max: -Infinity})
+
+// console.log("Решение № 5", rr.max, rr.min);
+
+
+// // Использует объект для хранения минимального и максимального значений: { min: minimal, max: maximal }.
+// // Начальное значение задается как { min: Infinity, max: -Infinity }.
+// // На каждой итерации reduce() обновляет значения минимального и максимального элементов в объекте.
+// // В результате rr - это объект с двумя свойствами: min и max, содержащими соответственно минимальное и максимальное значения.
+
+
+
+
+// //Решение №6  (короче 5)
+
+
+
+// const value =  ar44.reduce((ac, curEl) => {
+//     return [Math.min(ac[0], curEl), Math.max(ac[1], curEl)];
+// }, [ar44[0], ar44[0]]);
+
+// console.log("Решение №6 (короче 5)",  value );
+
+
+
+
+
+
+
+
+
+
+
+
+// //Решение № 4.1 (Гугл по короче)
+
+
+
+// const [i, x] = ar44.reduce(([ii, xx], currVal) => [
+    
+//     Math.min(ii, currVal), 
+//     Math.max(xx, currVal), 
+
+// ], [Infinity, -Infinity]);
+
+
+
+
+// console.log('4.1. Гугл по короче', x, i);
+
+
+
+
+
+// //Решение № 7 (GPT по короче)
+
+
+// let SomeRes = ar44.reduce((ac, currentV) => [
+    
+//     Math.min(ac[0], currentV), 
+//     Math.max(ac[1], currentV)
+
+// ], [Infinity, -Infinity]);
+
+
+// console.log('Решение № 7 (GPT по короче)', SomeRes[1], SomeRes[0]);
+
+
+
+//6. Подсчет количества букв в строке: Создайте строку и используйте метод reduce(), чтобы подсчитать количество каждой буквы в строке. Результат должен быть объектом, где ключами являются буквы, а значениями - их количество.
+
+// const str = 'ыsssstring';
+
+// res = str.split('').reduce((acum, curr_value) => {
+//     acum[curr_value] = (acum[curr_value] || 0) +1;            
+//             return acum;
+// }, {});
+    
+// console.log(res);
+// //(acum[curr_value] || 0) - Оно проверяет, существует ли значение acum[curr_value] в аккумуляторе acum
+
+
+// r = str.split('').reduce((ac, curVal) => {
+//     ac[curVal] = (ac[curVal] || 0) +1;
+//     return ac;
+// }, {});
+
+// console.log(r);
+
+
+
+
+/*
+
+acum[curr_value] = (acum[curr_value] || 0) +1; - объясни подробно что происходит в данной части кода
+Объяснение выражения acum[curr_value] = (acum[curr_value] || 0) + 1;
+Данное выражение является ключевым для реализации подсчета количества букв в строке с помощью метода reduce().
+
+Разбор по частям:
+
+acum[curr_value]:
+
+acum - это аккумуляторный объект, который используется для хранения количества каждой буквы.
+curr_value - это текущий символ, обрабатываемый в цикле reduce().
+acum[curr_value] - это значение, соответствующее текущему символу в аккумуляторе.
+|| 0:
+
+Оператор || (логическое ИЛИ) используется для проверки, существует ли значение acum[curr_value].
+Если acum[curr_value] существует, то его значение используется.
+Если acum[curr_value] не существует (т.е. символ встречается впервые), то используется значение 0.
++ 1:
+
+Значение, полученное на предыдущем шаге, увеличивается на 1.
+Объединение:
+
+В целом, данное выражение выполняет следующие действия:
+
+Проверяет, встречался ли текущий символ curr_value ранее.
+Если символ встречался:
+Использует существующее значение acum[curr_value].
+Увеличивает это значение на 1.
+Если символ не встречался:
+Создает новое поле в аккумуляторе acum[curr_value] со значением 1.
+Пример:
+
+Итерация 1:
+
+curr_value = "s"
+acum["s"] не существует, поэтому используется значение 0 из выражения || 0.
+acum["s"] = 0 + 1 = 1
+Итерация 2:
+
+curr_value = "t"
+acum["t"] не существует, поэтому используется значение 0 из выражения || 0.
+acum["t"] = 0 + 1 = 1
+Итерация 3:
+
+curr_value = "r"
+acum["r"] не существует, поэтому используется значение 0 из выражения || 0.
+acum["r"] = 0 + 1 = 1
+Итерация 4:
+
+curr_value = "i"
+acum["i"] не существует, поэтому используется значение 0 из выражения || 0.
+acum["i"] = 0 + 1 = 1
+Итерация 5:
+
+curr_value = "n"
+acum["n"] не существует, поэтому используется значение 0 из выражения || 0.
+acum["n"] = 0 + 1 = 1
+Итерация 6:
+
+curr_value = "g"
+acum["g"] не существует, поэтому используется значение 0 из выражения || 0.
+acum["g"] = 0 + 1 = 1
+В результате:
+
+Объект acum будет содержать:
+acum["s"] = 1
+acum["t"] = 1
+acum["r"] = 2
+acum["i"] = 2
+acum["n"] = 1
+acum["g"] = 1
+Таким образом, данное выражение является ключевым для реализации подсчета количества букв в строке с помощью метода  reduce().
+
+*/
+
+
+
+
+
+
+// //ещё раз
+
+// const a = 'aaaaasdddsdfefdf';
+
+// const d = a.split('').reduce((ac, curr) => {
+//     ac[curr] = (ac[curr] || 0) +1;
+//     return ac;
+// },{})
+
+// console.log(d);
+
+
+
+// r = str.split('').reduce((ac, curVal) => {
+//     ac[curVal] = (ac[curVal] || 0) +1;
+//     return ac;
+// }, {});
+
+// console.log(r);
+
+/*
+Давайте рассмотрим строку "aabbc". Посмотрим, как будет изменяться объект acum при выполнении каждой итерации reduce():
+
+Первая итерация:
+
+curr_value равно 'a'.
+acum[curr_value] равно undefined, поэтому используется второй операнд 0.
+Выражение становится 0 + 1, результат 1.
+Обновленный объект acum: { 'a': 1 }.
+Вторая итерация:
+
+curr_value равно снова 'a'.
+acum[curr_value] равно 1.
+Выражение становится 1 + 1, результат 2.
+Обновленный объект acum: { 'a': 2 }.
+Третья итерация:
+
+curr_value равно 'b'.
+acum[curr_value] равно undefined, поэтому используется второй операнд 0.
+Выражение становится 0 + 1, результат 1.
+Обновленный объект acum: { 'a': 2, 'b': 1 }.
+Четвертая итерация:
+
+curr_value равно снова 'b'.
+acum[curr_value] равно 1.
+Выражение становится 1 + 1, результат 2.
+Обновленный объект acum: { 'a': 2, 'b': 2 }.
+Пятая и последняя итерация:
+
+curr_value равно 'c'.
+acum[curr_value] равно undefined, поэтому используется второй операнд 0.
+Выражение становится 0 + 1, результат 1.
+Обновленный объект acum: { 'a': 2, 'b': 2, 'c': 1 }.
+Таким образом, в конечном результате объект acum будет выглядеть так: { 'a': 2, 'b': 2, 'c': 1 }, что соответствует количеству каждой буквы в строке "aabbc".
+
+
+
+*/
+
+
+
+
+// !!!!!!!!!!!!!!!  =+ =-
+
+// let r = [2, -4, 5, 10];
+
+
+
+// let c1 = 1;
+
+// с =- c1; //этой строкой кода переменной c присваивается новое значение, которое является противоположным значению переменной c1.
+// console.log( с, c1);
+
+
+
+
+// // reduce - по видео WebDev
+
+// //https://www.youtube.com/watch?v=AxiqfRchTXQ
+
+// const arr = [1, 2, 3, 4, 5] //15
+
+// let storage = 0 
+
+// for( i = 0; i < arr.length; i++){
+//     storage = storage + arr[i];
+// }
+// console.log('arr: ', storage);
+
+
+
+// //меняем название storage на accum и добавляем let
+
+// let  accum1 = 0 
+// for( i = 0; i < arr.length; i++){
+//     let currentElem = arr[i];
+//     accum1 = accum1 + currentElem
+// }
+// console.log('arr + accum: ', accum1);
+
+
+// //сокращаем сложение
+
+// let accum2 = 0 
+
+// for( i = 0; i < arr.length; i++){
+//     let currentElem = arr[i];
+//     accum2 +=  currentElem
+// }
+// console.log('arr +=: ', accum2);
+
+
+// //использование reduce()
+
+// let res = arr.reduce((acсum3, currEl) => {
+//     acсum3 += currEl;
+//     return acсum3 //reduce должен всегда возвращать acсum3
+// }, 0); //- здесь мы сократили let accum2 = 0 - т.е. задали начальное значение, Но его можно опустить, если нас устраивает что 1-ый элемент массива в попадёт acum 
+
+
+// //т.е. начальное значение reduce() может обеспечить сам
+
+
+// console.log("reduce() + 0", res);
+
+
+
+
+
+// // сокращаем 
+
+
+// let res2 = arr.reduce((acсum3, currEl) => {
+//     return  acсum3 += currEl;
+// }); 
+
+// console.log("сокр", res2);
+
+
+
+// // сокращаем //если в стрелочной функции только одна операция то можно опустить фигурные скобки и return
+
+// let res3 = arr.reduce((acсum3, currEl) => acсum3 += currEl); 
+
+// console.log("-{}", res3);
+
+
+
+
+
+
+// // # Найти максимальное значение массива
+
+// const ar = [6, 7, 8, 9, 680, 10];
+
+
+// let maximal  = ar[0];
+
+// for(i = 1; i < ar.length; i++){
+
+//     let curEl = ar[i];
+
+//     if(curEl > maximal)
+//     maximal =  curEl;
+// }
+
+// console.log("max", maximal);
+
+
+
+
+
+
+
+
+// // Сокращение
+
+
+
+// let acum  = ar[0];
+
+// for(i = 1; i < ar.length; i++){
+
+//     let curEl = ar[i];
+    
+//     if(curEl > acum )
+//     acum  =  curEl;
+// }
+
+// console.log("max", acum );
+
+
+
+
+// //редьюс
+
+// res = ar.reduce((accum, currEl) => {
+
+//     if(currEl > accum)
+//         accum = currEl;
+    
+//     return accum;
+
+// });
+
+// console.log('reuduce', res);
+
+
+
+// //редьюс сокращение
+
+
+// res2 = ar.reduce((accum, currEl) => { currEl > accum ? accum = currEl : accum });
+
+// console.log('reuduce сокращение', res);
+
+
+
+
+
+
+
+
+// // # Находим индекс максимального элемента массива
+// const arr = [9, 2, 3, 488, 5, 10, 22, 222]
+
+// let indx = 0;
+
+// for (i = 0; i < arr.length; i++){
+//     if(arr[indx] < arr[i])
+//     indx = i;
+// }
+
+
+// console.log("indx", indx);
+
+
+
+// //заменяем на acum
+
+
+
+// let acum = 0;
+
+// for (i = 0; i < arr.length; i++){
+//     if(arr[acum] < arr[i])
+//     acum = i;
+// }
+
+
+// console.log("acum",  acum);
+
+
+
+
+
+
+// // сокращаем
+
+
+
+
+// let acum2 = 0;
+
+// for (i = 0; i < arr.length; i++){
+//     let currEl = arr[i]
+//     if(arr[acum2] < currEl)  //currEl уже является элементом массива, а не массивом сам по себе. Поэтому писать фигурные скобки не нужно - currEl[i]
+//     acum2 = i;
+// }
+
+
+// console.log("acum",  acum2);
+
+
+
+
+// //reduce()
+
+// let acum3 = 0;
+// res = arr.reduce((acum3, currEl) => {
+
+//     if(arr[acum3] < currEl)
+//     acum3 = i;
+// })
+
+// console.log("res",  res); //res undefined
+
+
+
+
+// //добавляем index, array
+
+// let acum4 = 0;
+// res2 = arr.reduce((acum4, curEl, index, array) => {
+
+//     if(array[acum4] < curEl)
+//     acum4 = index;
+
+//     return acum4
+// },0) //в .reduce() по умолчанию если мы ничего не напишем положит в акамулятор нулевой элемент, но так как нам ЭЛЕМЕНТ не нужен (нам нужен индекс по задаче) то мы допишем 0 - начальное значение индекса акамулятора. acum4 = 0 - в первой итерации. Также это делается для того что бы в слечае предачи путого массива не возвращалась ошибка
+
+
+
+
+// console.log("res",  res2)
+
+
+
+
+// // //сокращаем
+
+
+// // let acum5 = 0;
+// // res3 = arr.reduce((acum5, curEl, index, array) => (array[acum5] < curEl) ? index : acum5 ,0)
+
+// // console.log("res",  res3)
+
+
+
+// //#4 Посчитать количество отрицательных чисел в массиве
+
+// const arr = [-1, -2, -3, 4, 5, 0, -2 ];
+
+// let sorage = 0;
+// for (i = 0; i < arr.length; i++){
+//     if(arr[i] < 0) sorage++;
+// }
+
+// console.log('Начало', sorage );
+
+
+// //reduce()
+
+// res = arr.reduce((acum, curEl) => {
+
+//     if(curEl < 0) acum++; //curEl представляет собой значение элемента массива, а не сам массив
+    
+//     return acum
+
+// },0) //так как мы убрали  let sorage = 0; то нужно дописать в качестве начального значения - },0)
+
+// console.log('reduce()', res);
+
+
+
+// //сокращаем
+
+// res2 = arr.reduce((acum, curEl) => (curEl < 0) ? acum + 1 : acum, 0)
+
+// console.log('reduce()', res2);
+
+
+
+// //reduce () -  это метод который позволяет применять функцию к массиву
+// //acum = 0 (по умолчанию ) 
+
+
+
+
+// превращаем массив в объект:
+
+// const arr = ["Sasha", "Petya", "Иван"];
+
+// let a = arr.reduce((accum, currEl, index) =>{
+//     return{
+//         ...accum,
+//         [index]: currEl,
+//     }
+
+// }, {});
+
+// console.log(a);
+
+//1) {} 0 "Sasha" => {0: "Sasha"}
+
+//2){0: "Sasha"} 1 "Petya" => {0: "Sasha", 1:"Petya"}
+
+//3){0: "Sasha"} 1 "Petya" => {0: "Sasha", 1:"Petya", 2:"Иван"}
+
+
+
+
+//7. Создание нового массива на основе текущего: Создайте массив чисел и используйте метод reduce(), чтобы создать новый массив, содержащий квадраты всех чисел из исходного массива.
+
+// const arr2 = [1, 2, 3, 4, 5, 6];
+
+// let res = arr2.reduce((acum, curEl) =>{
+
+    
+
+//     return [
+//     ...acum,
+
+
+//     curEl * curEl
+//     ]
+// }, [])
+
+// console.log("мой метод", res);
+
+
+
+
+//bard
+
+const numbers = [1, 2, 3, 4, 5];
+
+const squaredNumbers = numbers.reduce((acc, curr) => {
+  return acc.concat([curr * curr]);
+}, []);
+
+console.log("bard", squaredNumbers); // [1, 4, 9, 16, 25]
+
+//.concat() Объединение массивов: concat() соединяет элементы нескольких массивов в один новый массив.Сохранение исходных массивов: Исходные массивы, участвующие в объединении, не изменяются.
+
+
+
+
+
+
+
+const arr = [1, 2, 3, 4, 5, 6];
+const squares = arr.reduce((acc, cur) => [...acc, cur ** 2], []);
+
+console.log("GPT",squares);
+
+
+
+
+
+
+
+
+const numbers2 = [1, 2, 3, 4, 5];
+const squaredNumbers2 = numbers2.reduce((a, c) => a.concat(c * c), []);
+console.log("bard-короткий",squaredNumbers2); // [1, 4, 9, 16, 25]
