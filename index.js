@@ -3458,12 +3458,35 @@ console.log(deepCopyObj); // { a: 10, b: { c: 20, d: 3 } }
 //8.Группировка элементов массива по категориям: Создайте массив объектов, где каждый объект представляет элемент с именем и категорией. Используйте метод reduce(), чтобы сгруппировать элементы по категориям и создать объект, где ключами будут категории, а значениями - массивы элементов из каждой категории.
 
 
+const arrObj = [
+    {ObjName: 'Book # 1', genreCategory: "Litrature"},
+    {ObjName: 'Book # 2', genreCategory: "Adventuture"},
+    {ObjName: 'Book # 3', genreCategory: "Science"},
+    {ObjName: 'Book # 4', genreCategory: "Comedy"},
+    {ObjName: 'Book # 5', genreCategory: "Adventuture"},
+    {ObjName: 'Book # 6', genreCategory: "Science"}
+    
+]
 
 
 
 
+const res = arrObj.reduce((ac, curr) => {
+
+    // Если категории еще нет в объекте, создаем пустой массив для этой категории
+    if(!ac[curr.genreCategory]){ 
+        ac[curr.genreCategory] = []
+    }
+
+    // Добавляем текущий элемент в массив категории
+    ac[curr.genreCategory].push(curr);
+
+    return ac;
 
 
+}, {});
+
+console.log(res);
 
 
 
