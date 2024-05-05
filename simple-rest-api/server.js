@@ -24,7 +24,7 @@ app.get('/api/users/:id', (req, res) => {
     res.json(user);
 });
 
-// Запуск сервера
+// Запуск сервер
 app.listen(PORT, () => {
     console.log(`Сервер запущен на порту ${PORT}`);
 });
