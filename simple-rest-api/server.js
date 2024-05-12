@@ -31,13 +31,13 @@ app.get('/api/users', (req, res) => {
 
 
 // Маршрут для получения пользователя по ID
-app.get('/api/users/:id', (req, res) => {
-    const userId = parseInt(req.params.id);
+app.get('/api/users/:id', (request, response) => {
+    const userId = parseInt(request.params.id);
     const user = users.find(user => user.id === userId);
     if (!user) {
-        return res.status(404).json({ message: 'Пользователь не найден' });
+        return response.status(404).json({ message: 'Пользователь не найден' });
     }
-    res.json(user);
+    response.json(user);
 });
 
 // Запуск сервера
@@ -46,7 +46,10 @@ app.listen(PORT, () => {
 });
 
 
+//где использованны колл бэки
+//Вызов метода app.listen(PORT, callback) использует колбэк функцию callback, которая будет вызвана, когда сервер будет успешно запущен и начнет прослушивать указанный порт. Это пример использования колбэк функции.
 
+//Маршруты app.get('/api/users', ...) и app.get('/api/users/:id', ...) также используют колбэк функции для обработки запросов. Эти функции будут вызваны каждый раз, когда сервер получает соответствующий HTTP-запрос к указанным маршрутам. 
 
 
 /* rocess.env.PORT || 3000 -
@@ -94,34 +97,68 @@ app.listen(PORT, () => {
 
 
 /*
+Давайте создадим простое REST API с использованием Node.js и Express, используя колбэк-функции для обработки запросов к различным маршрутам API.
+
+Прежде всего, убедитесь, что у вас установлен Node.js и пакетный менеджер npm. Затем создайте новый проект Node.js и установите Express:
+
+```bash
+mkdir simple-rest-api
+cd simple-rest-api
+npm init -y
+npm install express
+```
+
+Теперь создайте файл `server.js` и добавьте в него следующий код:
+
+```javascript
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Пример данных
 const users = [
-    { id: 1, name: 'John' },
-    { id: 2, name: 'Jane' },
-    { id: 3, name: 'Doe' }
+    { id: 1, name: 'John' },
+    { id: 2, name: 'Jane' },
+    { id: 3, name: 'Doe' }
 ];
 
 // Маршрут для получения списка пользователей
 app.get('/api/users', (req, res) => {
-    res.json(users);
+    res.json(users);
 });
 
 // Маршрут для получения пользователя по ID
 app.get('/api/users/:id', (req, res) => {
-    const userId = parseInt(req.params.id);
-    const user = users.find(user => user.id === userId);
-    if (!user) {
-        return res.status(404).json({ message: 'Пользователь не найден' });
-    }
-    res.json(user);
+    const userId = parseInt(req.params.id);
+    const user = users.find(user => user.id === userId);
+    if (!user) {
+        return res.status(404).json({ message: 'Пользователь не найден' });
+    }
+    res.json(user);
 });
 
 // Запуск сервера
 app.listen(PORT, () => {
-    console.log(`Сервер запущен на порту ${PORT}`);
+    console.log(`Сервер запущен на порту ${PORT}`);
 });
+```
+
+В этом примере мы создали простой сервер с двумя маршрутами:
+
+1. `GET /api/users` - возвращает список всех пользователей.
+2. `GET /api/users/:id` - возвращает информацию о пользователе по его ID.
+
+Теперь вы можете запустить сервер, выполнив команду:
+
+```bash
+node server.js
+```
+
+Сервер будет запущен на порту 3000 (или другом порте, если переменная окружения `PORT` установлена). Вы можете отправить запросы к вашему API, используя любой HTTP-клиент, такой как `curl` или Postman. Например:
+
+```bash
+curl http://localhost:3000/api/users
+```
+
+Этот запрос вернет список всех пользователей.
 */
