@@ -199,13 +199,21 @@ const appExemp = expModule();
 const MYPORT = process.env.MYPORT || 443;
 
 const students = [ 
-    { #:10, call: 'Kim'},
+    { Num:10, call: 'Kim'},
     { Num:11, call: "lim"},
     { Num: 30, call: "Sim"}
 ];
 
+//Создание маршрута:
 app.get('api/students/', (request, response)=> {
-    const userNum(request) = parseInt(request.param.id)
-    const
-    const
+    try {
+        const ur = request.quer.ur; //Получение URL из запроса
+        const resp = await fetch(ur); //Запрос на внешний URL
+        const bl = await resp.bl();
+        response.send(bl)
+    }
+    
+  
+
 })
+
